@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dstress</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<!-- navbar -->
+<% if current_user %>
+<nav class='navbar navbar-default'>
+  <div class='container-fluid'>
+    <div class='navbar-header'>
+      <ul class='nav navbar-nav'>
+          <li><a href="/">Home</a></li>
+          <li><a href="/emergency">Hotline</a></li>
+          <li><a href="/solutions">Solutions</a></li>
+          <li><a href='/users/<%= current_user.id %>'><%= current_user.first_name %></a></li>
+
+          <!-- play music -->
+          <audio id="myAudio">
+            <source src="/assets/book-e9fd4a372531b0780cefc0e7ab55aff6.mp3" type='audio/mp3'>
+            <source src="/assets/book-e9fd4a372531b0780cefc0e7ab55aff6.mp3" type='audio/ogg; codecs=vorbis'>
+          </audio>
+          <input type="submit" class='btn btn-default' onclick="aud_play_pause()" value="Play/Pause">
+          <script>
+          function aud_play_pause() {
+            var myAudio = document.getElementById("myAudio");
+            if (myAudio.paused) {
+              myAudio.play();
+            } else {
+              myAudio.pause();
+            }
+          }
+          </script>
+
+          <!-- logout -->
+          <form id="logout" action='/sessions' method='post' class='navbar-form'>
+            <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+            <input type='hidden' name='_method' value='delete'>
+            <input type='submit' class='btn btn-default' value='Log Out'>
+          </form>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<% end %>
+
+<!-- flash success or error messages -->
+<% if flash[:messages] %>
+  <% flash[:messages].each do |message| %>
+    <p class="<%= message['status'] %>"><%= message['text'] %></p>
+  <% end %>
+<% end %>
+
+<!-- partials -->
+<%= yield %>
+
+</body>
+</html>

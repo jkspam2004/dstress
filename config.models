@@ -1,0 +1,24 @@
+rails new dstress --database=postgresql --skip-test-unit -m ~/Git/dojo/rails/template.rb
+
+rails g model User handle:string first_name:string last_name:string email:string password:digest location:integer
+
+rails g model Response content:text
+
+rails g model Reason stress_reason:string
+
+rails g model Solution reason:references response:references 
+
+rails g model Sensitivity level:string
+
+rails g model Trigger content:string sensitivity:references
+
+rails g model Reminder reminder_type:string
+
+rails g model Scheduler phone:integer frequency:string reminder:references user:references
+
+rails g model Tip tip:string reminder:references
+
+rails g migration AddTriggerRefToSolutions trigger:references
+
+
+

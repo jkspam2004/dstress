@@ -1,0 +1,30 @@
+<h2>In a cafe...</h2>
+<audio id="myAudio">
+<source src="/assets/book-e9fd4a372531b0780cefc0e7ab55aff6.mp3"
+         type='audio/mp3'>
+ <source src="/assets/book-e9fd4a372531b0780cefc0e7ab55aff6.mp3"
+         type='audio/ogg; codecs=vorbis'>
+ Your user agent does not support the HTML5 Audio element.
+</audio>
+<script>
+function aud_play_pause() {
+  var myAudio = document.getElementById("myAudio");
+  if (myAudio.paused) {
+    myAudio.play();
+  } else {
+    myAudio.pause();
+  }
+}
+</script>
+
+<style type="text/css">
+    #background {
+        width: 1875px;  /* 2500px */
+        height: 886px;  /* 1181px */
+    }
+</style>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<button type="button" onclick="aud_play_pause()">Play/Pause</button>
+<p><a href="/media">Back</a></p>
+<img src="/assets/coffee-shop.jpg" />

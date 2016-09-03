@@ -1,0 +1,27 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.reglog {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  height: 200px;
+}
+
+#reglogin {
+  background: url(Mindfulness.jpg) no-repeat; 
+  position:relative; 
+  background-size: 100% 100%;
+  width: 1420px;
+  height: 900px;
+}
+
+.header {
+  margin-top: 25px;
+}
+
+.reglogin {
+  margin-bottom: 20px;
+}
+
