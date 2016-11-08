@@ -27,6 +27,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+ 
+  def edit
+  end
+
   private ############################
   # sanitize user params
   def user_params

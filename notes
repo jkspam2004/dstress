@@ -1,0 +1,5 @@
+bundle exec figaro install
+
+make sure to add /config/application.yml to .gitignore 
+
+

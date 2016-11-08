@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
   root 'stresses#index'
 
+  # main welcome page. select stress
+  get 'stresses'       => 'stresses#index'
+  post 'stresses'      => 'stresses#create'
+
+  # session
   get 'sessions/new'   => 'sessions#new'
   post 'sessions'      => 'sessions#create'
   delete 'sessions'    => 'sessions#destroy'
 
+  # user info
   get 'users'          => 'users#index'
   post 'users'         => 'users#create'
+  get 'users/:id'      => 'users#show'
+  get 'users/:id/edit' => 'users#edit'
 
-
-  get 'stresses'       => 'stresses#index'
-  post 'stresses'      => 'stresses#create'
-
+  # solutions menu
   get 'solutions'      => 'solutions#index'
+
+  # chatbot
   get 'chats'          => 'chats#index'
   post 'chats'          => 'chats#create'
 
@@ -21,6 +28,7 @@ Rails.application.routes.draw do
   ## games
   get 'games/index' => 'games#index'
   get 'games'       => 'games#index'
+
   ## images
   resources :images
   
@@ -33,12 +41,15 @@ Rails.application.routes.draw do
   get 'media/bossa' => 'media#bossa'
   get 'media/cafe' => 'media#cafe'
 
+  # articles
   get '/articles' => 'articles#index'
   get '/articles/get_results(/:query)' => 'articles#get_results'
 
-
+  # places
   get '/places' => 'places#index'
   post '/places/geturl' => 'places#geturl'
+
+  # scheduler
   get 'schedulers' => 'schedulers#new'
   get 'schedulers/new' => 'schedulers#new'
   post 'schedulers' => 'schedulers#create'
